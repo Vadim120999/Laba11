@@ -47,9 +47,9 @@ fun HomeScreen(viewModel: MainViewModel) {
         ) {
             items(posts) {
                 if (it.type == PostType.TEXT) {
-                    TextPost(it)
+                    TextPost(it, onJoinButtonClick = onJoinClickAction)
                 } else {
-                    ImagePost(it)
+                    ImagePost(it, onJoinButtonClick = onJoinClickAction)
                 }
                 Spacer(modifier = Modifier.height(6.dp))
             }
