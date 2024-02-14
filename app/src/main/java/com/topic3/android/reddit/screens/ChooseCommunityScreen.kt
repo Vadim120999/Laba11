@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import com.topic3.android.reddit.routing.BackButtonAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.topic3.android.reddit.R
@@ -70,7 +70,11 @@ fun ChooseCommunityScreen(viewModel: MainViewModel, modifier: Modifier = Modifie
         )
         SearchedCommunities(communities, viewModel, modifier)
     }
+    BackButtonAction {
+        RedditRouter.goBack()
+    }
 }
+
 
 @Composable
 fun SearchedCommunities(
@@ -121,15 +125,4 @@ fun ChooseCommunityTopBar(modifier: Modifier = Modifier) {
             .height(48.dp)
             .background(Color.Blue)
     )
-}
-@Preview
-@Composable
-fun SearchedCommunitiesPreview() {
-    Column {
-        SearchedCommunities(
-            defaultCommunities,
-            null,
-            Modifier
-        )
-    }
 }
